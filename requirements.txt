@@ -1,4 +1,4 @@
-﻿altair==5.5.0
+altair==5.5.0
 annotated-doc==0.0.4
 annotated-types==0.7.0
 anyio==4.12.1
@@ -32,7 +32,7 @@ gitdb==4.0.12
 GitPython==3.1.46
 googleapis-common-protos==1.73.0
 greenlet==3.3.2
-grpcio==1.78.0
+grpcio==1.81.1
 h11==0.16.0
 httpcore==1.0.9
 httptools==0.7.1
