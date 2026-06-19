@@ -1,4 +1,4 @@
-﻿altair==5.5.0
+altair==5.5.0
 annotated-doc==0.0.4
 annotated-types==0.7.0
 anyio==4.12.1
@@ -60,7 +60,7 @@ MarkupSafe==3.0.3
 mccabe==0.7.0
 mdurl==0.1.2
 mmh3==5.2.1
-mpmath==1.3.0
+mpmath==1.4.1
 mypy==1.15.0
 mypy_extensions==1.1.0
 narwhals==2.18.0
