@@ -1,0 +1,55 @@
+name: CI – Lint & Unit Tests
+
+on:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Ruff Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff check
+        run: ruff check app/ scripts/
+
+      - name: Run ruff format check
+        run: ruff format --check app/ scripts/
+
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run unit tests (offline-safe subset)
+        run: |
+          python -m pytest \
+            app/tests/unit/test_api_error_utils.py \
+            app/tests/unit/test_safety_rules.py \
+            app/tests/unit/test_title_builder.py \
+            app/tests/unit/test_structured_merge.py \
+            app/tests/unit/test_civil_category.py \
+            -v --tb=short
