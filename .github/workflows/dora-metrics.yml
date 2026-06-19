@@ -44,7 +44,7 @@ jobs:
           node .github/scripts/calc_dora_metrics.mjs
 
       - name: Upload metrics artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dora-metrics
           path: artifacts/dora/dora_metrics_latest.json
